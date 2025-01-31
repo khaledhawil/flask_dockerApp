@@ -22,7 +22,7 @@ pipeline{
                 steps{
                     withCredentials([file(credentialsId: 'k8s', variable: 'k8s')]) {
     sh "sed -i 's|image:.*| maro4299311flask_app:$BUILD_NUMBER|g' deployment.yml"
-    sh "kubectl config --kubeconfig=$k8s apply -f deployment.yml "
+    sh "kubectl --kubeconfig=$k8s apply -f deployment.yml "
 }
                 }
             }
