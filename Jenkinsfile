@@ -21,7 +21,7 @@ pipeline{
             stage ('deploy'){
                 steps{
                     withCredentials([file(credentialsId: 'k8s', variable: 'k8s')]) {
-    sh "sed -i 's|image:.*| maro4299311|flask_app:$BUILD_NUMBER|g' deployment.yml"
+    sh "sed -i 's|image:.*| maro4299311flask_app:$BUILD_NUMBER|g' deployment.yml"
     sh "kubectl apply -f deployment.yml"
 }
                 }
