@@ -7,7 +7,7 @@ pipeline{
                     sh "docker build -t maro4299311/flask_app:$BUILD_NUMBER ."
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
     sh "docker login -u $USER -p $PASS"
-    SH "docker push maro4299311/flask_app:$BUILD_NUMBER"
+    sh "docker push maro4299311/flask_app:$BUILD_NUMBER"
 }
                 }
             }
