@@ -15,7 +15,7 @@ spec:
         app: flask
     spec:
       containers:
-      - name: flask-container
+      - name: flaskcontainer
         image: maro4299311/flask_app
         ports:
         - containerPort: 8080
